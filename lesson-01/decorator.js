@@ -1,9 +1,9 @@
 function pause(func, time) {
-  return function () {
-    setTimeout(this.func, this.time);
-    console.log(time);
-    console.log(`Функция выполниться с задержкой в ${time} секунды!`);
-    return result;
+  return function (n) {
+    setTimeout(function () {
+      console.log("Факториал " + n + " равен " + func(n));
+    }, time);
+    console.log(`Функция выполниться с задержкой в ${time} милисекунды!`);
   };
 }
 
@@ -15,6 +15,5 @@ function factorial(n) {
   return f;
 }
 
-let paused = pause(factorial, 20000);
-
-console.log("Факториал 14 равен " + paused(14));
+let paused = pause(factorial, 2000);
+paused(14);
